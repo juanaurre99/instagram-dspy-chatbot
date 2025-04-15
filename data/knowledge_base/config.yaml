@@ -1,0 +1,65 @@
+# Knowledge Base Configuration
+
+# General settings
+name: "Instagram DSPy Chatbot Knowledge Base"
+version: "1.0.0"
+description: "Knowledge base for the Instagram DSPy chatbot"
+created: "2023-06-15"
+updated: "2023-06-15"
+
+# Content directories
+directories:
+  - faqs
+  - instagram_content
+  - travel_guides
+  - personal_info
+  - video_transcripts
+
+# Content processing settings
+processing:
+  chunk_size: 512
+  chunk_overlap: 128
+  default_language: "en"
+  
+# Embedding settings
+embeddings:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  dimensions: 384
+  normalize: true
+
+# Vector database settings
+vector_db:
+  type: "chroma"
+  persist_directory: "data/vector_db"
+  collection_name: "instagram_chatbot"
+  distance_metric: "cosine"
+  
+# Retrieval settings
+retrieval:
+  max_documents: 5
+  similarity_threshold: 0.7
+  use_reranker: true
+  include_metadata: true
+  
+# Update settings
+updates:
+  auto_update: true
+  update_frequency: "daily"  # Options: hourly, daily, weekly, monthly
+  track_changes: true
+  
+# Categories and tags
+categories:
+  - travel
+  - personal
+  - technical
+  - lifestyle
+  - social
+  - business
+  
+# Priority weights (1-10, higher is more important)
+priority_weights:
+  faqs: 8
+  personal_info: 9
+  travel_guides: 7
+  instagram_content: 6
+  video_transcripts: 5 

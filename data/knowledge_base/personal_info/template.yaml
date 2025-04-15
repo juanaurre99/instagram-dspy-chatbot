@@ -1,0 +1,85 @@
+# Personal Information
+
+# Metadata
+title: "[Information Title]"
+date_created: "YYYY-MM-DD"
+last_updated: "YYYY-MM-DD"
+category: "Personal"
+tags:
+  - tag1
+  - tag2
+  - tag3
+source: "[Source]"
+content_type: "personal_info"
+relevance_score: 9
+
+# Basic Information
+personal:
+  full_name: "[Full Name]"
+  nickname: "[Nickname]"
+  birthday: "YYYY-MM-DD"
+  nationality: "[Nationality]"
+  languages:
+    - language: "[Language 1]"
+      proficiency: "[Native/Fluent/Intermediate/Basic]"
+    - language: "[Language 2]"
+      proficiency: "[Native/Fluent/Intermediate/Basic]"
+  occupation: "[Occupation]"
+  education:
+    - institution: "[Institution]"
+      degree: "[Degree]"
+      field: "[Field of Study]"
+      years: "[Year range]"
+
+# Contact Information (Private)
+contact:
+  email: "[Email]"
+  phone: "[Phone]"
+  address: "[Address]"
+  timezone: "[Timezone]"
+
+# Social Media
+social_media:
+  instagram: "@[username]"
+  twitter: "@[username]"
+  linkedin: "[URL]"
+  website: "[URL]"
+
+# Preferences
+preferences:
+  favorite_destinations:
+    - "[Destination 1]"
+    - "[Destination 2]"
+  travel_style:
+    - "[Style 1]"
+    - "[Style 2]"
+  interests:
+    - "[Interest 1]"
+    - "[Interest 2]"
+  foods:
+    - "[Food 1]"
+    - "[Food 2]"
+
+# Biography
+biography: |
+  [Short biography paragraph]
+  
+  [Additional paragraph if needed]
+
+# FAQ
+common_questions:
+  - question: "[Frequently asked question 1]"
+    answer: "[Answer 1]"
+  - question: "[Frequently asked question 2]"
+    answer: "[Answer 2]"
+
+# Privacy Settings
+privacy:
+  public_fields:
+    - full_name
+    - occupation
+    - social_media
+    - biography
+  restricted_fields:
+    - contact
+    - birthday 

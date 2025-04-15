@@ -1,0 +1,64 @@
+{
+  "title": "[Post Title]",
+  "date_created": "YYYY-MM-DD",
+  "last_updated": "YYYY-MM-DD",
+  "category": "[Category]",
+  "tags": ["tag1", "tag2", "tag3"],
+  "source": "Instagram",
+  "relevance_score": 5,
+  "content_type": "instagram_post",
+  
+  "post_details": {
+    "post_id": "[Instagram Post ID]",
+    "post_url": "https://www.instagram.com/p/[post-id]/",
+    "post_type": "[feed/story/reel]",
+    "creation_date": "YYYY-MM-DD",
+    "location": "[Location Tag if available]"
+  },
+  
+  "content": {
+    "caption": "[Full caption text]",
+    "caption_hashtags": ["#hashtag1", "#hashtag2"],
+    "caption_mentions": ["@user1", "@user2"],
+    "image_descriptions": [
+      "Description of image 1",
+      "Description of image 2"
+    ],
+    "alt_text": "[Alternative text for accessibility]"
+  },
+  
+  "engagement": {
+    "likes_count": 0,
+    "comments_count": 0,
+    "shares_count": 0,
+    "saves_count": 0,
+    "top_comments": [
+      {
+        "user": "@username",
+        "comment": "Comment text",
+        "likes": 0
+      }
+    ]
+  },
+  
+  "rich_content": {
+    "product_tags": [
+      {
+        "product_name": "[Product Name]",
+        "brand": "[Brand]",
+        "url": "[URL to product]"
+      }
+    ],
+    "music": {
+      "track_name": "[Track Name]",
+      "artist": "[Artist]"
+    },
+    "collaborative_users": ["@user1", "@user2"]
+  },
+  
+  "context": {
+    "related_posts": ["[Post ID 1]", "[Post ID 2]"],
+    "part_of_campaign": "[Campaign Name if applicable]",
+    "follows_theme": "[Theme if part of a series]"
+  }
+} 
