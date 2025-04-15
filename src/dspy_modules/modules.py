@@ -1,7 +1,7 @@
 import dspy
 from typing import Optional, Dict, Any
 
-from .signatures import BasicQA, GeneralQA
+from .signatures import BasicQA, GeneralQA, MessageClassifier
 
 class ContextQA(dspy.Module):
     """
@@ -46,3 +46,31 @@ class GeneralKnowledgeQA(dspy.Module):
         """
         prediction = self.predictor(question=question)
         return {"answer": prediction.answer, "full_result": prediction}
+
+
+class MessageIntentClassifier(dspy.Module):
+    """
+    A module that classifies messages by intent and extracts key information.
+    """
+    def __init__(self):
+        super().__init__()
+        self.predictor = dspy.Predict(MessageClassifier)
+    
+    def forward(self, message: str) -> Dict[str, Any]:
+        """
+        Classify a message by intent and extract key information.
+        
+        Args:
+            message: The message to classify
+            
+        Returns:
+            Dict containing the classification results
+        """
+        prediction = self.predictor(message=message)
+        
+        return {
+            "intent": prediction.intent,
+            "category": prediction.category,
+            "requires_context": prediction.requires_context.lower() == "yes",
+            "full_result": prediction
+        }
