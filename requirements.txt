@@ -1,0 +1,13 @@
+dspy-ai>=2.3.7
+anthropic>=0.18.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+numpy>=1.24.0
+pandas>=2.0.0
+pydantic>=2.5.0
+langchain>=0.0.340
+langchain-community>=0.0.10
+sentence-transformers>=2.2.2
+pytest>=7.4.0
+chromadb>=0.4.22
+tqdm>=4.66.0
