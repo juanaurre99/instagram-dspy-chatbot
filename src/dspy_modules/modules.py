@@ -1,7 +1,8 @@
 import dspy
-from typing import Optional, Dict, Any
+import json
+from typing import Optional, Dict, Any, List
 
-from .signatures import BasicQA, GeneralQA, MessageClassifier
+from .signatures import BasicQA, GeneralQA, MessageClassifier, EntityExtractor
 
 class ContextQA(dspy.Module):
     """
@@ -72,5 +73,51 @@ class MessageIntentClassifier(dspy.Module):
             "intent": prediction.intent,
             "category": prediction.category,
             "requires_context": prediction.requires_context.lower() == "yes",
+            "full_result": prediction
+        }
+
+
+class MessageEntityExtractor(dspy.Module):
+    """
+    A module that extracts entities from a message such as locations, people, dates, topics and keywords.
+    """
+    def __init__(self):
+        super().__init__()
+        self.predictor = dspy.Predict(EntityExtractor)
+    
+    def forward(self, message: str) -> Dict[str, Any]:
+        """
+        Extract entities from a message.
+        
+        Args:
+            message: The message to extract entities from
+            
+        Returns:
+            Dict containing the extracted entities
+        """
+        prediction = self.predictor(message=message)
+        
+        # Parse JSON strings into Python lists
+        try:
+            locations = json.loads(prediction.locations)
+            people = json.loads(prediction.people)
+            dates = json.loads(prediction.dates)
+            topics = json.loads(prediction.topics)
+            keywords = json.loads(prediction.keywords)
+        except json.JSONDecodeError as e:
+            # Handle parsing errors gracefully
+            print(f"Error parsing entity JSON: {e}")
+            locations = []
+            people = []
+            dates = []
+            topics = []
+            keywords = []
+            
+        return {
+            "locations": locations,
+            "people": people,
+            "dates": dates,
+            "topics": topics,
+            "keywords": keywords,
             "full_result": prediction
         }
